@@ -1,45 +1,6 @@
+{% extends "layout.html" %}
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <title>Cite des jeunes !</title>
-        <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-        <link rel="shortcut icon" href="static/flat-ui/images/favicon.ico">
-        <link rel="stylesheet" href="static/flat-ui/bootstrap/css/bootstrap.css">
-        <link rel="stylesheet" href="static/flat-ui/css/flat-ui.css">
-        <!-- Using only with Flat-UI (free)-->
-        <link rel="stylesheet" href="static/common-files/css/icon-font.css">
-        <!-- end -->
-        <link rel="stylesheet" href="static/css/style.css">
-    </head>
-
-    <body>
-
-        <div class="page-wrapper">
-            <!-- header-10 -->
-            <header class="header-10">
-                <div class="container">
-                    <div class="navbar col-sm-12" role="navigation">
-                        <div class="navbar-header">
-                            <button type="button" class="navbar-toggle"></button>
-                            <a class="brand" href="#"> La Cité des Jeunes</a>
-                         </div>
-                        <div class="collapse navbar-collapse pull-right">
-                            <ul class="nav pull-left">
-                                <li class="active"><a href="#">Découvrir</a></li>
-                                <li><a href="#camps">Participer</a></li>
-                                <li><a href="#">Animer</a></li>
-                                <li><a href="#">Témoigner</a></li>
-                            </ul>
-                            <form class="navbar-form pull-left">
-                                <a class="btn btn-info" href="#">S'inscrire !</a>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </header>
+{% block contents %}
             <section class="header-10-sub v-center bg-midnight-blue">
                 <div class="background">
                     &nbsp;
@@ -141,15 +102,4 @@ Les activités varient d’un séjour à l’autre et d’une année à l’autr
             </section>
 
         </div>
-
-        <!-- Placed at the end of the document so the pages load faster -->
-        <script src="static/common-files/js/jquery-1.10.2.min.js"></script>
-        <script src="static/flat-ui/js/bootstrap.min.js"></script>
-        <script src="static/common-files/js/modernizr.custom.js"></script>
-        <script src="static/common-files/js/jquery.scrollTo-1.4.3.1-min.js"></script>
-        <script src="static/common-files/js/jquery.parallax.min.js"></script>
-        <script src="static/common-files/js/startup-kit.js"></script>
-        <script src="static/js/jquery.backgroundvideo.min.js"></script>
-        <script src="static/js/script.js"></script>
-    </body>
-</html>
+{% endblock %}
