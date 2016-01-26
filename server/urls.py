@@ -10,8 +10,12 @@ def test():
 
 @app.route('/', methods=['POST', 'GET'])
 def main():
-<<<<<<< HEAD
     return render_template('index.html')
+
+
+@app.route('/about', methods=['POST', 'GET'])
+def about():
+    return render_template('about.html')
 
 
 def login_required(fn):
@@ -44,10 +48,3 @@ def logout():
         session.clear()
         return redirect(url_for('login'))
     return render_template('logout.html')
-=======
-    return render_template('index.html') 
-	
-@app.route('/about', methods=['POST', 'GET'])
-def about():
-	return render_template('about.html')
->>>>>>> 3e438e03a48af99a4972cfd86390387cec6c26ef
