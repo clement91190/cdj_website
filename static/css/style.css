@@ -1672,4 +1672,10 @@ section * {
   left: 0;
 }
 
+#footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
 
