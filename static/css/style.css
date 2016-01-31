@@ -1667,4 +1667,9 @@ section * {
 .footer-3 {
   background-color: #1B1F23;
   color: #7F8C8D;
+  position: absolute;
+  bottom: 0;
+  left: 0;
 }
+
+
