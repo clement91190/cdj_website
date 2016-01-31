@@ -210,9 +210,8 @@ a.muted:focus {
 }
 footer {
   background-color: #edeff1;
-  /* padding-top: 30px;
+  padding-top: 30px;
   padding-bottom: 30px;
-  */
 }
 
 .input-append input {
@@ -1680,8 +1679,6 @@ section * {
   position: absolute;
   bottom: 0;
   left: 0;
-  padding-top: 30px;
-  padding-bottom: 30px;
 }
 
 
