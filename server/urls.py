@@ -16,6 +16,6 @@ def main():
 def about():
 	return render_template('about.html')
 
-	@app.route('/vacances', methods=['POST', 'GET'])
+@app.route('/vacances', methods=['POST', 'GET'])
 def vacances():
 	return render_template('vacances.html')
