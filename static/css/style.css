@@ -518,7 +518,7 @@ h5,
 h6,
 .h6 {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color: #e0590b;
+  color: /* #1d8539*/ #e0590b;
 }
 h1 {
   font-weight: normal;
@@ -1098,7 +1098,7 @@ section * {
   text-align: center;
   font-size: 30px;
   font-weight: normal;
-  color: #d64b1a;
+  color: /* g : #197030 */ /* r : #d64b1a; */ /* o : */ #e06b0b;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   margin-bottom: 80px;
   line-height: 42px;
@@ -1164,7 +1164,7 @@ section * {
 .content-7 h6 {
   font-size: 18px;
   font-weight: normal;
-  color: #e74c3c;
+  color: /* g : #229a42; */ /* r : #e74c3c; */ /* o : */ #f38a11; 
   font-weight: 500;
   margin-top: 60px;
   text-transform: none;
@@ -1625,7 +1625,7 @@ section * {
   filter: alpha(opacity=85);
 }
 .header-10 {
-  background-color: #1b1f23;
+  background-color: #27ae60;
 }
 .header-10 .btn:hover,
 .header-10 .btn.active,
