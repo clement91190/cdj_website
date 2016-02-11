@@ -12,5 +12,10 @@ def main():
     return render_template('index.html') 
 	
 @app.route('/about', methods=['POST', 'GET'])
+
 def about():
 	return render_template('about.html')
+
+	@app.route('/vacances', methods=['POST', 'GET'])
+def vacances():
+	return render_template('vacances.html')
