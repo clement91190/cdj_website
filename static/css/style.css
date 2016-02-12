@@ -1684,4 +1684,14 @@ section * {
 	text-align: justified;
 }
 
+h4 {
+	color: #f38a11;
+	font-weight: 700;
+	margin-top: 0px;
+	margin-bottom: 15px;
+}
 
+li {
+	font-size: 18px;
+	line-height: 1.5;
+}
