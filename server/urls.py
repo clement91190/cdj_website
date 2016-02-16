@@ -19,3 +19,7 @@ def about():
 @app.route('/vacances', methods=['POST', 'GET'])
 def vacances():
 	return render_template('vacances.html')
+
+@app.route('/inscriptions', methods=['POST', 'GET'])
+def vacances():
+	return render_template('inscriptions.html')

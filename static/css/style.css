@@ -1691,7 +1691,7 @@ h4 {
 	margin-bottom: 15px;
 }
 
-li {
+.content-list {
 	font-size: 18px;
 	line-height: 1.5;
-}
+} 
