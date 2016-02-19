@@ -31,3 +31,7 @@ def projet():
 @app.route('/statuts', methods=['POST', 'GET'])
 def statuts():
 	return render_template('statuts.html')
+	
+@app.route('/camps_6_12', methods=['POST', 'GET'])
+def camps_6_12():
+	return render_template('camps_6_12.html')

@@ -1697,6 +1697,11 @@ h5 {
 	color: #f38a11;
 }
 
+.justified-paragraph > h5 {
+	text-align: center;
+	color: #e0590b;
+}
+
 .content-list {
 	font-size: 18px;
 	line-height: 1.5;
