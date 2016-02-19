@@ -1700,11 +1700,22 @@ h5 {
 } 
 
 table {
-	margin: auto;
+	
 }
 
 th, td {
 	padding: 10px;
 	font-size: 18px;
-	
+	text-align: center;
+	border-width: 1px;
+	border-style: solid;
+	border-color: transparent;
+}
+
+th {
+	background-color: #f4f2ec;
+}
+
+td {
+	background-color: #dcf1dc;
 }
