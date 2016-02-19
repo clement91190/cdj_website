@@ -27,3 +27,7 @@ def inscriptions():
 @app.route('/projet', methods=['POST', 'GET'])
 def projet():
 	return render_template('projet.html')
+	
+@app.route('/statuts', methods=['POST', 'GET'])
+def statuts():
+	return render_template('statuts.html')
