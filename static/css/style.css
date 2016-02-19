@@ -1703,7 +1703,7 @@ h5 {
 } 
 
 table {
-	
+	margin: 30px;
 }
 
 th, td {
@@ -1712,13 +1712,13 @@ th, td {
 	text-align: center;
 	border-width: 1px;
 	border-style: solid;
-	border-color: transparent;
+	border-color: white;
 }
 
 th {
-	background-color: #f4f2ec;
+	background-color: #fae8a3;
 }
 
 td {
-	background-color: #dcf1dc;
+	background-color: #f4f2ec;
 }
