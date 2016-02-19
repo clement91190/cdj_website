@@ -17,7 +17,7 @@
     </head>
 {% endblock %}
 <body>
-<div class="page-wrapper">
+<div class="page-wrapper" id="full-height">
 {% block header %}
 	<header class="header-10" style="background-color:rgb(243, 156, 18);" >
 					<div class="container">
@@ -88,8 +88,10 @@
 					</div>
 	</header>
 {% endblock %}
-{% block contents %}
-{% endblock %}
+	<div id="content">
+		{% block contents %}
+		{% endblock %}
+	</div>
 </div>
 {% block footer %}
 <div id="footer">
