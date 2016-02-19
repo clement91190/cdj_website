@@ -105,7 +105,7 @@ p {
   /* 41px */
 
   font-weight: 300;
-  margin-bottom: 20px;
+  margin-bottom: 50px;
 }
 small {
   font-size: 84%;
@@ -1712,12 +1712,17 @@ h5 {
 .justified-paragraph > h5 {
 	text-align: center;
 	color: #e0590b;
+	margin-top: 1em;
 }
 
 .content-list {
 	font-size: 18px;
 	line-height: 1.5;
-} 
+}
+
+.dual-list li:first_child {
+	font-weight: bold;
+}
 
 table {
 	margin: 30px;
