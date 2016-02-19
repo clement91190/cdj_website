@@ -23,3 +23,7 @@ def vacances():
 @app.route('/inscriptions', methods=['POST', 'GET'])
 def inscriptions():
 	return render_template('inscriptions.html')
+	
+@app.route('/projet', methods=['POST', 'GET'])
+def projet():
+	return render_template('projet.html')
