@@ -67,3 +67,7 @@ def conseil():
 @app.route('/journal', methods=['POST', 'GET'])
 def journal():
 	return render_template('journal.html')
+
+@app.route('/contact', methods=['POST', 'GET'])
+def contact():
+	return render_template('contact.html')

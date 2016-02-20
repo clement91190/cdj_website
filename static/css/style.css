@@ -1647,39 +1647,6 @@ section * {
   overflow: hidden;
   background-color: #1B1F23;
 }
-.content-23 #bgVideo {
-  overflow: hidden;
-}
-.content-23 #bgVideo > video {
-  position: absolute !important;
-  top: 0 !important;
-}
-.content-23 .control-btn {
-  opacity: 10;
-  filter: alpha(opacity=1000);
-  opacity: 0.1;
-  filter: alpha(opacity=10);
-}
-.content-23.custom-bg {
-  background-image: url('../img/groupe.jpg');
-  background-position: 50% 50%;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-}
-
-/* Footer template and features */
-
-html, body, #full-height {
-	height: 100%;
-}
-
-body > #full-height { 
-	height: auto; min-height: 100%; 
-}
-
-#content { 
-	padding-bottom: 3em; 
-}
 
 .footer-3 {
   background-color: #1B1F23;
@@ -1728,7 +1695,40 @@ h5 {
 	font-weight: bold;
 }
 
-table {
+
+}
+.content-23 #bgVideo {
+  overflow: hidden;
+}
+.content-23 #bgVideo > video {
+  position: absolute !important;
+  top: 0 !important;
+}
+.content-23 .control-btn {
+  opacity: 10;
+  filter: alpha(opacity=1000);
+  opacity: 0.1;
+  filter: alpha(opacity=10);
+}
+.content-23.custom-bg {
+  background-image: url('../img/groupe.jpg');
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+/* Footer template and features */
+
+html, body, #full-height {
+	height: 100%;
+}
+
+body > #full-height { 
+	height: auto; min-height: 100%; 
+}
+
+#content { 
+	padding-bottom: 3em; table {
 	margin: 30px;
 }
 
