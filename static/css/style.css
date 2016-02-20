@@ -1748,3 +1748,7 @@ table {
 .camp-table td {
 	background-color: #f4f2ec;
 }
+
+.standard-table {
+	font-size: 18px;
+}
