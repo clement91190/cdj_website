@@ -1720,7 +1720,11 @@ h5 {
 	line-height: 1.5;
 }
 
-.dual-list li:first_child {
+.dual-list {
+	margin-bottom: 1.5em;
+}
+
+.dual-list > li:first_child {
 	font-weight: bold;
 }
 
@@ -1728,7 +1732,7 @@ table {
 	margin: 30px;
 }
 
-th, td {
+.camp-table th,.camp-table td {
 	padding: 10px;
 	font-size: 18px;
 	text-align: center;
@@ -1737,10 +1741,10 @@ th, td {
 	border-color: white;
 }
 
-th {
+.camp-table th {
 	background-color: #fae8a3;
 }
 
-td {
+.camp-table td {
 	background-color: #f4f2ec;
 }

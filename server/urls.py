@@ -47,3 +47,11 @@ def camps_16_17():
 @app.route('/jvoupas', methods=['POST', 'GET'])
 def jvoupas():
 	return render_template('jvoupas.html')
+	
+@app.route('/news', methods=['POST', 'GET'])
+def news():
+	return render_template('news.html')
+	
+@app.route('/coin_anims', methods=['POST', 'GET'])
+def coin_anims():
+	return render_template('coin_anims.html')
