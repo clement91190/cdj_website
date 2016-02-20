@@ -1736,19 +1736,20 @@ table {
 	padding: 10px;
 	font-size: 18px;
 	text-align: center;
-	border-width: 1px;
+	border-width: 1px 1px 0px 0px;
 	border-style: solid;
 	border-color: white;
 }
 
+.camp-table th:last-child,.camp-table td:last-child {
+	border-width: 1px 0px 1px 0px;
+}
+
+
 .camp-table th {
-	background-color: #fae8a3;
+	background-color: #f9f9f9;
 }
 
 .camp-table td {
-	background-color: #f4f2ec;
-}
-
-.standard-table {
-	font-size: 18px;
+	background-color: transparent;
 }
