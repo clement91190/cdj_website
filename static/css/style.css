@@ -1738,7 +1738,7 @@ table {
 	text-align: center;
 	border-width: 1px 1px 0px 0px;
 	border-style: solid;
-	border-color: white;
+	border-color: #dddddd;
 }
 
 .camp-table th:last-child,.camp-table td:last-child {
