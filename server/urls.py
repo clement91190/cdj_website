@@ -35,3 +35,15 @@ def statuts():
 @app.route('/camps_6_12', methods=['POST', 'GET'])
 def camps_6_12():
 	return render_template('camps_6_12.html')
+	
+@app.route('/camps_13_15', methods=['POST', 'GET'])
+def camps_13_15():
+	return render_template('camps_13_15.html')
+	
+@app.route('/camps_16_17', methods=['POST', 'GET'])
+def camps_16_17():
+	return render_template('camps_16_17.html')
+	
+@app.route('/jvoupas', methods=['POST', 'GET'])
+def jvoupas():
+	return render_template('jvoupas.html')
