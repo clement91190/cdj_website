@@ -63,3 +63,7 @@ def charte():
 @app.route('/conseil', methods=['POST', 'GET'])
 def conseil():
 	return render_template('conseil.html')
+	
+@app.route('/journal', methods=['POST', 'GET'])
+def journal():
+	return render_template('journal.html')

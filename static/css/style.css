@@ -1724,7 +1724,7 @@ h5 {
 	margin-bottom: 1.5em;
 }
 
-.dual-list > li:first_child {
+.dual-list > li:first-child {
 	font-weight: bold;
 }
 
