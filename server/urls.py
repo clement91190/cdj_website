@@ -55,3 +55,11 @@ def news():
 @app.route('/coin_anims', methods=['POST', 'GET'])
 def coin_anims():
 	return render_template('coin_anims.html')
+
+@app.route('/charte', methods=['POST', 'GET'])
+def charte():
+	return render_template('charte.html')
+	
+@app.route('/conseil', methods=['POST', 'GET'])
+def conseil():
+	return render_template('conseil.html')
