@@ -1679,7 +1679,7 @@ h5 {
 .justified-paragraph > h5 {
 	text-align: center;
 	color: #e0590b;
-	margin-top: 1em;
+	margin-top: 4em;
 }
 
 .content-list {
@@ -1691,7 +1691,7 @@ h5 {
 	margin-bottom: 1.5em;
 }
 
-.dual-list > li:first-child {
+.dual-list > li:last-child {
 	font-weight: bold;
 }
 
