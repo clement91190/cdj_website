@@ -84,7 +84,7 @@ def detail(slug):
     else:
         entry = Entry.get_entry(slug, public=True)
     if entry is None:
-        return redirect(url_for('404'))
+        return not_found()
 
     return render_template('detail.html', entry=entry)
 
@@ -97,7 +97,7 @@ def edit(slug):
     else:
         entry = Entry.get_entry(public=True)
     if entry is None:
-        return redirect(url_for('404'))
+        return not_found()
 
     if request.method == 'POST':
         if request.form.get('title') and request.form.get('content'):
