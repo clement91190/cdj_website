@@ -3,7 +3,7 @@
 {% block head %}
     <head>
         <meta charset="utf-8">
-        <title>Cite des jeunes !</title>
+        <title>Cité des jeunes !</title>
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black" />
@@ -17,28 +17,30 @@
     </head>
 {% endblock %}
 <body>
-<div class="page-wrapper">
+<div class="page-wrapper" id="full-height">
 {% block header %}
-	<header class="header-10">
+	<header class="header-10" style="background-color:rgb(243, 156, 18);" >
 					<div class="container">
 						<div class="navbar col-sm-12" role="navigation">
 							<div class="navbar-header">
 								<button type="button" class="navbar-toggle"></button>
-								<a class="brand" href="#"> La Cité des Jeunes</a>
+								<a class="brand" href="/">
+									<img src="../static/img/logo_transparent.png" style="height: 60px; padding-bottom: 10px; margin-right: 5px;">
+								La Cité des Jeunes</a>
 							 </div>
 							<div class="collapse navbar-collapse pull-right">
 								<ul class="nav pull-left">
-									<li class="active dropdown">
+									<li class="dropdown"><!-- active -->
 										<a class="dropdown-toggle" data-toggle="dropdown" href="#">Découvrir
 											<!-- <b class="caret"></b> -->
 										</a>
 										<span class="dropdown-arrow"></span>
 										<ul class="dropdown-menu">
 											<li><a href="/about"> L'identité de la Cité des Jeunes </a></li>
-											<li><a href="#"> Les vacances à la Cité des Jeunes </a></li>
-											<li><a href="#"> Projet éducatif </a></li>
-											<li><a href="#"> Statuts </a></li>
-											<li><a href="#"> Le conseil </a></li>
+											<li><a href="/vacances"> Les vacances à la Cité des Jeunes </a></li>
+											<li><a href="/projet"> Projet éducatif </a></li>
+											<li><a href="/statuts"> Statuts </a></li>
+											<li><a href="/conseil"> Le conseil </a></li>
 										</ul>
 									</li>
 									<li class="dropdown">
@@ -47,11 +49,11 @@
 										</a>
 										<span class="dropdown-arrow"></span>
 										<ul class="dropdown-menu">
-											<li><a href="#"> Colonies 6-12 ans </a></li>
-											<li><a href="#"> Camps 13-15 ans </a></li>
-											<li><a href="#"> Camps 16-17 ans </a></li>
-											<li><a href="#"> Inscriptions </a></li>
-											<li><a href="#"> J'y vais, j'y vais pas? </a></li>
+											<li><a href="/camps_6_12"> Colonies 6-12 ans </a></li>
+											<li><a href="/camps_13_15"> Camps 13-15 ans </a></li>
+											<li><a href="/camps_16_17"> Camps 16-17 ans </a></li>
+											<li><a href="/inscriptions"> Inscriptions </a></li>
+											<li><a href="/jvoupas"> J'y vais, j'y vais pas? </a></li>
 										</ul>
 									</li>
 									<li class="dropdown">
@@ -60,10 +62,11 @@
 										</a>
 										<span class="dropdown-arrow"></span>
 										<ul class="dropdown-menu">
-											<li><a href="#"> Ils ont dit... </a></li>
-											<li><a href="#"> Les nouvelles </a></li>
-											<li><a href="#"> Cité Nouvelle </a></li>
-											<li><a href="#"> Archives des camps </a></li>
+										
+										<!--	<li><a href="#"> Ils ont dit... </a></li> Besoin de témoignages récents	-->
+											<li><a href="/news"> Les nouvelles </a></li>
+											<li><a href="/journal"> Cité Nouvelle </a></li>
+											<!-- <li><a href="#"> Archives des camps </a></li> Besoin d'archives récentes -->
 										</ul>
 									</li>
 									<li class="dropdown">
@@ -72,26 +75,29 @@
 										</a>
 										<span class="dropdown-arrow"></span>
 										<ul class="dropdown-menu">
-											<li><a href="#"> Le coin des anims' </a></li>
-											<li><a href="#"> Les formations </a></li>
-											<li><a href="#"> La charte anim' </a></li>
-											<li><a href="#"> Les anciens de la Cité </a></li>
+											<li><a href="/coin_anims"> Le coin des anims' </a></li>
+											<!-- Besoin de données récentes<li><a href="#"> Les formations </a></li> -->
+											<li><a href="/charte"> La charte anim' </a></li>
+											<!-- Besoin de données récentes <li><a href="#"> Les anciens de la Cité </a></li> -->
 										</ul>
 									</li>									
 								</ul>
-								<!--
+								
 								<form class="navbar-form pull-left">
-									<a class="btn btn-info" href="#">S'inscrire !</a>
-								</form> -->
+									<a class="btn btn-lg btn-warning" href="/contact">Contactez nous !</a>
+								</form>
 							</div>
 						</div>
 					</div>
 	</header>
 {% endblock %}
-{% block contents %}
-{% endblock %}
+	<div id="content">
+		{% block contents %}
+		{% endblock %}
+	</div>
 </div>
 {% block footer %}
+<div id="footer">
 	<footer>
 		<div class = "container">
 			<div class = "col-xs-7">
@@ -101,8 +107,9 @@
 			</div>
 		</div>
 	</footer>
+</div>
 {% endblock %}
-
+<!-- </div> -->
 {% block scriptsLoad %}
 <!-- Placed at the end of the document so the pages load faster -->
         <script src="static/common-files/js/jquery-1.10.2.min.js"></script>
