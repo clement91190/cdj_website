@@ -1746,8 +1746,8 @@ body > #full-height {
 }
 
 
-.camp-table th:last-child,.camp-table td:last-child {
-	border-width: 0px 0px 0px 0px;
+.camp-table th:last-child {
+	border-width: 0px 0px 2px 0px;
 }
 
 
