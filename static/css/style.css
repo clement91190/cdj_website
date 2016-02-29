@@ -1620,7 +1620,7 @@ section * {
   background-image: url("../img/tentes.jpg");
   opacity: 85;
   filter: alpha(opacity=8500);
-  opacity: 0.85;
+  opacity: 0.4;
   filter: alpha(opacity=85);
 }
 .header-10 {
@@ -1728,7 +1728,7 @@ body > #full-height {
 }
 
 #content { 
-	padding-bottom: 3em; table {
+	padding-bottom: 3em;
 	margin: 30px;
 }
 
