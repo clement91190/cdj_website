@@ -7,6 +7,10 @@ from micawber import bootstrap_basic
 app = Flask(__name__, template_folder='../templates', static_folder='../static')
 app.config['ADMIN_PASSWORD'] = 'secret'
 db = MongoEngine(app)
+app.config['MONGODB_SETTINGS'] = {
+    'db': 'heroku_2ccz1cfc',
+    'host': 'mongodb://cdj_blog:unregimentdefromageblanc@ds019478.mlab.com:19478/heroku_2ccz1cfc'
+}
 
 # Configure micawber with the default OEmbed providers (YouTube, Flickr, etc).
 # We'll use a simple in-memory cache so that multiple requests for the same

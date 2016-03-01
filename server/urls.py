@@ -28,7 +28,7 @@ def login_required(fn):
     return inner
 
 
-@app.route('/login/', methods=['GET', 'POST'])
+@app.route('/login', methods=['GET', 'POST'])
 def login():
     next_url = request.args.get('next') or request.form.get('next')
     if request.method == 'POST' and request.form.get('password'):
@@ -40,7 +40,12 @@ def login():
             return redirect(next_url or url_for('index'))
         else:
             flash('Incorrect password.', 'danger')
-    return render_template('login.html', next_url=next_url)
+    return render_template('login.html') #, next_url=next_url)
+
+
+@app.route('/temp_log', methods=['GET', 'POST'])
+def truc():
+    return render_template('login.html')
 
 
 @app.route('/logout/', methods=['GET', 'POST'])
