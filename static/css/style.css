@@ -72,7 +72,6 @@ h1 {
 }
 h2 {
   font-weight: 700;
-  margin-bottom: 2px;
 }
 h3 {
   font-weight: 700;
@@ -918,6 +917,7 @@ section * {
 .header-10 .navbar .btn {
   padding-left: 26px;
   padding-right: 26px;
+  font-weight: bold;
 }
 .header-10 .navbar .btn.btn-info {
   font-size: 15px;
@@ -1646,6 +1646,13 @@ section * {
 .content-23 {
   overflow: hidden;
   background-color: #1B1F23;
+}
+
+.content-24 {
+	padding-bottom: 90px;
+	padding-left: 90px;
+	padding-right: 90px;
+	padding-top: 2em;
 }
 
 .footer-3 {
