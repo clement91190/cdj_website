@@ -72,7 +72,6 @@ h1 {
 }
 h2 {
   font-weight: 700;
-  margin-bottom: 2px;
 }
 h3 {
   font-weight: 700;
@@ -918,6 +917,7 @@ section * {
 .header-10 .navbar .btn {
   padding-left: 26px;
   padding-right: 26px;
+  font-weight: bold;
 }
 .header-10 .navbar .btn.btn-info {
   font-size: 15px;
@@ -1648,6 +1648,13 @@ section * {
   background-color: #1B1F23;
 }
 
+.content-24 {
+	padding-bottom: 90px;
+	padding-left: 90px;
+	padding-right: 90px;
+	padding-top: 2em;
+}
+
 .footer-3 {
   background-color: #1B1F23;
   color: #7F8C8D;
@@ -1729,25 +1736,34 @@ body > #full-height {
 
 #content { 
 	padding-bottom: 3em;
-	margin: 30px;
+	/* margin: 30px; */
+}
+
+.camp-table {
+	margin-top: 35px;
 }
 
 .camp-table th,.camp-table td {
 	padding: 10px;
 	font-size: 18px;
 	text-align: center;
-	border-width: 1px 1px 0px 0px;
+	border-width: 0px 1px 0px 0px;
 	border-style: solid;
 	border-color: #dddddd;
 }
 
-.camp-table th:last-child,.camp-table td:last-child {
-	border-width: 1px 0px 1px 0px;
+
+.camp-table th:last-child{
+	border-width: 0px 0px 2px 0px;
+}
+
+.camp-table td:last-child {
+	border-style: none;
 }
 
 
 .camp-table th {
-	background-color: #f9f9f9;
+	background-color: #efefef;
 }
 
 .camp-table td {
