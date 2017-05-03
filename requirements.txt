@@ -14,3 +14,9 @@ python-gcm==0.1.5
 wsgiref==0.1.2
 twilio==3.6.6
 gunicorn==19.1.0
+mongoengine==0.9.0
+flask-mongoengine==0.7.5
+BeautifulSoup
+micawber
+pygments
+markdown
