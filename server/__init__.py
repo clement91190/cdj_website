@@ -1,5 +1,5 @@
 from flask import Flask
-from flask.ext.mongoengine import MongoEngine
+from flask_mongoengine import MongoEngine
 from micawber.cache import Cache as OEmbedCache
 from micawber import bootstrap_basic
 

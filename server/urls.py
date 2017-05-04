@@ -48,7 +48,7 @@ def truc():
     return render_template('login.html')
 
 
-@app.route('/logout/', methods=['GET', 'POST'])
+@app.route('/logout', methods=['GET', 'POST'])
 def logout():
     if request.method == 'POST':
         session.clear()
