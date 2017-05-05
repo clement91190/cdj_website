@@ -24,20 +24,20 @@ def login_required(fn):
     def inner(*args, **kwargs):
         if session.get('logged_in'):
             return fn(*args, **kwargs)
-        return redirect(url_for('login', next=request.path))
-    return inner
+        return redirect(url_for('login', next=request.path)) #'url_for' generates an URL to 'login' while passing the following arguments (here, 'next') 
+    return inner											 #through the generated URL
 
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    next_url = request.args.get('next') or request.form.get('next')
-    if request.method == 'POST' and request.form.get('password'):
+    next_url = request.args.get('next') or request.form.get('next') #Retrieves the next page to serve after successful login from the QUERY STRING (after the '?')
+    if request.method == 'POST' and request.form.get('password'):	#in the URL
         password = request.form.get('password')
         if password == app.config['ADMIN_PASSWORD']:
             session['logged_in'] = True
             session.permanent = True  # Use cookie to store session.
             flash('You are now logged in.', 'success')
-            return redirect(next_url or url_for('index'))
+            return redirect(next_url or url_for('main'))
         else:
             flash('Incorrect password.', 'danger')
     return render_template('login.html') #, next_url=next_url)

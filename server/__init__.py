@@ -6,6 +6,7 @@ from micawber import bootstrap_basic
 
 app = Flask(__name__, template_folder='../templates', static_folder='../static')
 app.config['ADMIN_PASSWORD'] = 'secret'
+app.config['SECRET_KEY'] = '!&b0GDb6m%gFvddrZDj34?_A^pBw9h*'
 db = MongoEngine(app)
 app.config['MONGODB_SETTINGS'] = {
     'db': 'heroku_2ccz1cfc',

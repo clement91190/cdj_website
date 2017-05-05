@@ -91,6 +91,19 @@
 					</div>
 	</header>
 {% endblock %}
+{% block flashbar %} <!-- Block for displaying flashed messages -->
+{% with messages = get_flashed_messages() %}
+	{% if messages %}
+	<div id="flashbar">
+		<ul class="flashes">
+		{% for message in messages %}
+			<li>{{ message }}</li>
+		{% endfor %}
+		</ul>
+	</div>
+	{% endif %}
+{% endwith %}
+{% endblock %}
 	<div id="content">
 		{% block contents %}
 		{% endblock %}

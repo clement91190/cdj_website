@@ -1739,6 +1739,8 @@ body > #full-height {
 	/* margin: 30px; */
 }
 
+/* Camp tables templates */
+
 .camp-table {
 	margin-top: 35px;
 }
@@ -1768,4 +1770,11 @@ body > #full-height {
 
 .camp-table td {
 	background-color: transparent;
+}
+
+/* Flash messages bar template */
+
+#flashbar {
+	background-color: pink;
+	font-color: red;
 }
