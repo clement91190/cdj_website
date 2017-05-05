@@ -1119,7 +1119,7 @@ section * {
 .content-7.v-center > div,
 .content-7 .v-center > div {
   display: table-cell;
-  vertical-align: middle;
+  padding-top: 60px;
   margin-top: 0;
   margin-bottom: 0;
   float: none;
@@ -1768,4 +1768,18 @@ body > #full-height {
 
 .camp-table td {
 	background-color: transparent;
+}
+
+.col-sm-4 .banner-btn {
+	background-color: #feb90f;
+	margin-top: 14px;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	font-size: 15px;
+}
+
+.banner-btn:hover, .banner-btn:focus, .banner-btn:active, .banner-btn.active, .open .dropdown-toggle.banner-btn {
+    color: #ffffff;
+    background-color: #f5d313;
+    border-color: #f5d313;
 }
