@@ -56,7 +56,7 @@ def logout():
     return render_template('logout.html')
 
 
-@app.route('/create/', methods=['GET', 'POST'])
+@app.route('/create', methods=['GET', 'POST'])
 @login_required
 def create():
     if request.method == 'POST':
@@ -75,14 +75,14 @@ def create():
     return render_template('create.html')
 
 
-@app.route('/drafts/')
+@app.route('/drafts')
 @login_required
 def drafts():
     query = Entry.drafts().order_by('-timestamp')
     return render_template('list.html', query, check_bounds=False)
 
 
-@app.route('/<slug>/')
+@app.route('/<slug>')
 def detail(slug):
     if session.get('logged_in'):
         entry = Entry.get_entry(slug, public=False)
@@ -94,7 +94,7 @@ def detail(slug):
     return render_template('detail.html', entry=entry)
 
 
-@app.route('/<slug>/edit/', methods=['GET', 'POST'])
+@app.route('/<slug>/edit', methods=['GET', 'POST'])
 @login_required
 def edit(slug):
     if session.get('logged_in'):
