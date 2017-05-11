@@ -3,75 +3,6 @@
 // --------------------------------------------------
 
 
-// Body text
-// -------------------------
-
-p {
-  font-size: 	 @font-size-base;
-  line-height: @line-height-base;
-  margin: 0 0 (@line-height-computed / 2);
-}
-
-.lead {
-	margin-bottom: @line-height-computed;
-  font-size: 	 floor(@font-size-base * 1.556); 	// ~28px
-  line-height: 1.46428571; 											// ~41px
-  font-weight: 300;
-  
-  @media (min-width: @screen-sm-min) {
-    font-size: (@font-size-base * 1.667);				// ~30px
-  }
-}
-
-// Emphasis & misc
-// -------------------------
-
-// Ex: 18px base font * 83% = about 15px
-small,
-.small {
-  font-size: 83%; 		// ~15px
-  line-height: 2.067; // ~31px
-}
-
-// Contextual emphasis
-.text-muted {
-  color: @text-muted;
-}
-.text-inverse {
-	color: @inverse;
-}
-.text-primary {
-  color: @brand-secondary;
-  &:hover {
-    color: mix(@brand-secondary, black, 80%);
-  }
-}
-.text-warning {
-  color: @state-warning-text;
-  &:hover {
-    color: mix(@state-warning-text, black, 80%);
-  }
-}
-.text-danger {
-  color: @state-danger-text;
-  &:hover {
-    color: mix(@state-danger-text, black, 80%);
-  }
-}
-.text-success {
-  color: @state-success-text;
-  &:hover {
-    color: mix(@state-success-text, black, 80%);
-  }
-}
-.text-info {
-  color: @state-info-text;
-  &:hover {
-    color: mix(@state-info-text, black, 80%);
-  }
-}
-
-
 // Headings
 // -------------------------
 
@@ -81,7 +12,7 @@ h1, h2, h3, h4, h5, h6,
   font-weight: @headings-font-weight;
   line-height: @headings-line-height;
   color: @headings-color;
-  
+
   small {
     color: @headings-small-color;
   }
@@ -108,8 +39,82 @@ h1, .h1 { font-size: @font-size-h1; } // ~62px
 h2, .h2 { font-size: @font-size-h2; } // ~52px
 h3, .h3 { font-size: @font-size-h3; } // ~40px
 h4, .h4 { font-size: @font-size-h4; } // ~29px
-h5, .h5 { font-size: @font-size-h5; }	// ~28px 
+h5, .h5 { font-size: @font-size-h5; } // ~28px
 h6, .h6 { font-size: @font-size-h6; } // ~24px
+
+
+// Body text
+// -------------------------
+
+p {
+  font-size:   @font-size-base;
+  line-height: @line-height-base;
+  margin: 0 0 (@line-height-computed / 2);
+}
+
+.lead {
+  margin-bottom: @line-height-computed;
+  font-size:   floor((@font-size-base * 1.556));  // ~28px
+  line-height: 1.46428571;                      // ~41px
+  font-weight: 300;
+
+  @media (min-width: @screen-sm-min) {
+    font-size: (@font-size-base * 1.667);       // ~30px
+  }
+}
+
+// Emphasis & misc
+// -------------------------
+
+// Ex: 18px base font * 83% = about 15px
+small,
+.small {
+  font-size: 83%;     // ~15px
+  line-height: 2.067; // ~31px
+}
+
+// Contextual emphasis
+.text-muted {
+  color: @text-muted;
+}
+.text-inverse {
+  color: @inverse;
+}
+.text-primary {
+  .text-emphasis-variant(@brand-secondary);
+}
+.text-warning {
+  .text-emphasis-variant(@state-warning-text);
+}
+.text-danger {
+  .text-emphasis-variant(@state-danger-text);
+}
+.text-success {
+  .text-emphasis-variant(@state-success-text);
+}
+.text-info {
+  .text-emphasis-variant(@state-info-text);
+}
+
+// Contextual backgrounds
+.bg-primary {
+  // Given the contrast here, this is the only class to have its color inverted
+  // automatically.
+  color: @inverse;
+  .bg-variant(@brand-primary);
+}
+.bg-success {
+  .bg-variant(@state-success-bg);
+}
+.bg-info {
+  .bg-variant(@state-info-bg);
+}
+.bg-warning {
+  .bg-variant(@state-warning-bg);
+}
+.bg-danger {
+  .bg-variant(@state-danger-bg);
+}
 
 
 // Page header
@@ -118,7 +123,7 @@ h6, .h6 { font-size: @font-size-h6; } // ~24px
 .page-header {
   padding-bottom: ((@line-height-computed / 2) - 1);
   margin: (@line-height-computed * 2) 0 @line-height-computed;
-  border-bottom: 1px solid @page-header-border-color;
+  border-bottom: 2px solid @page-header-border-color;
 }
 
 
@@ -148,10 +153,10 @@ dd {
 @media (min-width: @grid-float-breakpoint) {
   .dl-horizontal {
     dt {
-      width: (@component-offset-horizontal - 20);
+      width: (@dl-horizontal-offset - 20);
     }
     dd {
-      margin-left: @component-offset-horizontal;
+      margin-left: @dl-horizontal-offset;
     }
   }
 }
@@ -170,14 +175,15 @@ blockquote {
   border-left: 3px solid @blockquote-border-color;
   padding: 0 0 0 16px;
   margin: 0 0 @line-height-computed;
-  
+
   p {
-    font-size: ceil(@font-size-base * 1.111); // ~20px
-    line-height: 1.55;												// ~31px
+    font-size: ceil((@font-size-base * 1.111)); // ~20px
+    line-height: 1.55;                        // ~31px
     font-weight: normal;
     margin-bottom: .4em;
   }
-  small {
+  small,
+  .small {
     font-size: @font-size-base;
     line-height: @line-height-base;
     font-style: italic;
@@ -187,7 +193,7 @@ blockquote {
       content: "";
     }
   }
-  
+
   // Float right with text-align: right
   &.pull-right {
     padding-right: 16px;
@@ -195,10 +201,8 @@ blockquote {
     border-right: 3px solid @blockquote-border-color;
     border-left: 0;
 
-    small {
-      &:after {
-        content: "";
-      }
+    small:after {
+      content: "";
     }
   }
 }
@@ -207,4 +211,10 @@ blockquote {
 address {
   margin-bottom: @line-height-computed;
   line-height: @line-height-base;
+}
+
+// Sup and Sub
+sub,
+sup {
+  font-size: 70%;
 }

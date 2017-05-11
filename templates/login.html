@@ -6,7 +6,7 @@
 		<div class="container v-center bg-white" style="padding-bottom: 90px; padding-left: 90px; padding-right: 90px;">
 		
 			<h2>Login</h2>
-			<form action={{url_for('login')}} method="post">
+			<form action={{url_for('login', next=next_url)}} method="post">
 				<dl>
 					<dt>Nom d'utilisateur</dt>
 					<dd><input type="text" name="username"></dd>

@@ -30,17 +30,17 @@ def login_required(fn):
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    next_url = request.args.get('next') or request.form.get('next') #Retrieves the next page to serve after successful login from the QUERY STRING (after the '?')
+    next_url = request.args.get('next') #or request.form.get('next') #Retrieves the next page to serve after successful login from the QUERY STRING (after the '?')
     if request.method == 'POST' and request.form.get('password'):	#in the URL
         password = request.form.get('password')
         if password == app.config['ADMIN_PASSWORD']:
             session['logged_in'] = True
             session.permanent = True  # Use cookie to store session.
-            flash('You are now logged in.', 'success')
-            return redirect(next_url or url_for('main'))
+            flash('You are now logged in', 'success')
+            return redirect(next_url) #or url_for('main'))
         else:
             flash('Incorrect password.', 'danger')
-    return render_template('login.html') #, next_url=next_url)
+    return render_template('login.html', next_url=next_url)
 
 
 @app.route('/temp_log', methods=['GET', 'POST'])
@@ -61,10 +61,11 @@ def logout():
 def create():
     if request.method == 'POST':
         if request.form.get('title') and request.form.get('content'):
-            entry = Entry.create(
+            entry = Entry(
                 title=request.form['title'],
                 content=request.form['content'],
                 published=request.form.get('published') or False)
+            entry.save()
             flash('Entry created successfully.', 'success')
             if entry.published:
                 return redirect(url_for('detail', slug=entry.slug))
@@ -89,7 +90,7 @@ def detail(slug):
     else:
         entry = Entry.get_entry(slug, public=True)
     if entry is None:
-        return not_found()
+        return not_found(404)
 
     return render_template('detail.html', entry=entry)
 
@@ -98,11 +99,11 @@ def detail(slug):
 @login_required
 def edit(slug):
     if session.get('logged_in'):
-        entry = Entry.get_entry(public=False)
+        entry = Entry.get_entry(slug, public=False)
     else:
-        entry = Entry.get_entry(public=True)
+        entry = Entry.get_entry(slug, public=True)
     if entry is None:
-        return not_found()
+        return not_found(404)
 
     if request.method == 'POST':
         if request.form.get('title') and request.form.get('content'):

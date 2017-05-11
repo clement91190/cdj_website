@@ -10,7 +10,7 @@ from mongoengine import DoesNotExist
 
 class Entry(db.Document):
     title = db.StringField()
-    slug = db.StringField(unique=True)
+    slug = db.StringField(default='default_slug')
     content = db.StringField()
     published = db.BooleanField()
     timestamp = db.DateTimeField(default=datetime.datetime.now)
@@ -43,8 +43,8 @@ class Entry(db.Document):
     def get_entry(cls, slug, public=True):
         try:
             if public:
-                return Entry.objects(published=True, slug=slug)
+                return Entry.objects(published=True, slug=slug).first()
             else:
-                return Entry.objects(slug=slug)
+                return Entry.objects(slug=slug).first()
         except DoesNotExist:
             return None
