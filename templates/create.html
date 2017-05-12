@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+<!DOCTYPE html>
+
+{% block contents %}
+	<h2>Create new post</h2>
+	<form action="{{ url_for('create') }}" class="form-horizontal" method="post">
+		<dl class="form-list">
+			<dt>Titre</dt>
+			<dd><input type="text" name="title"></dd>
+			<dt>Message</dt>
+			<dd><input type="text" name="content"></dd>
+		</dl>
+		<div>
+			<label for="custom-switch-01">Message public</label>
+			<label class="checkbox">
+				<input type="checkbox" name="published" value="public" data-toggle="checkbox" id="custom-switch-01"/>
+			</label>
+		</div>
+		<button type="submit">Publier</button>
+	</form>
+{% endblock %}

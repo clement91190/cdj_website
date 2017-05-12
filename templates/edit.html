@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block title %}{{ entry.title }}{% endblock %}
+
+{% block content_title %}{{ entry.title }}{% endblock %}
+
+{% block extra_header %}
+  <h3>Post editor</h3>
+{% endblock %}
+
+{% block contents %}
+  <p>Created {{ entry.timestamp.strftime('%m/%d/%Y at %G:%I%p') }}</p>
+  <p>Post edition will be available soon!</p> 
+  {{ entry.html_content }}
+{% endblock %}
