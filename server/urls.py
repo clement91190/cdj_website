@@ -125,6 +125,8 @@ def edit(slug):
 
 @app.errorhandler(404)
 def not_found(exc):
+    print('Debug is set to ')
+    print(app.config.get('DEBUG'))
     return Response('<h3>Not found</h3>'), 404
 
 
