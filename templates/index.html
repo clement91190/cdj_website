@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 {% block contents %}
             <section class="header-10-sub v-center bg-midnight-blue">
-                <div class="background">
+                <!-- div class="background"> Old header
                     &nbsp;
                 </div>
                 <div>
@@ -15,7 +15,20 @@
 
                    </div>
                 </div>
-                <a class="control-btn fui-arrow-down" href="#"> </a>
+                <a class="control-btn fui-arrow-down" href="#"> </a -->
+
+                <h2>Actualités</h2>
+                <div class="recent-posts-row">
+                        {% for post in recent_posts %}
+                            <div class="post-item">
+                                <p>{{ post.title }}</p>
+                                <p>By {% for user in post.authors %} <!-- TODO : find a way to correctly display users -->
+                                        {{ user.username }}
+                                    {% endfor %}
+                                </p>
+                            </div>
+                        {% endfor %}
+                </div>
             </section>
 
             <!-- content-7  -->

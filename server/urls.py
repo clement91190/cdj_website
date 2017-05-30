@@ -1,7 +1,7 @@
-from server import app
+from server import app, db
 from flask import render_template, session, url_for, redirect, request, flash, Response
 import functools
-from models import Entry
+from models import Entry, User
 
 
 @app.route('/test', methods=['POST', 'GET'])
@@ -11,7 +11,9 @@ def test():
 
 @app.route('/', methods=['POST', 'GET'])
 def main():
-    return render_template('index.html')
+    recent_posts = Entry.objects.order_by('-timestamp')[:5]
+    print recent_posts
+    return render_template('index.html', recent_posts=recent_posts)
 
 
 @app.route('/about', methods=['POST', 'GET'])
@@ -27,26 +29,43 @@ def login_required(fn):
         return redirect(url_for('login', next=request.path)) #'url_for' generates an URL to 'login' while passing the following arguments (here, 'next') 
     return inner											 #through the generated URL
 
+@app.route('/dummy')
+def create_dummy():
+    if not User.userExists('Aaa'):
+        dummy=User(username='Aaa', password='pwd', email='dumdum@dummail.com')
+        dummy.save()
+    return redirect(url_for('login'))
+
+@app.route('/nodummy')
+def delete_dummy():
+    try:
+        User.objects(username='Aaa').get().delete()
+        return redirect(url_for('logout'))
+    except DoesNotExist:
+        return redirect(url_for('logout'))
+
+@app.route('/database')
+def print_db():
+    print(User._get_db())
+    print(app.config['MONGODB_SETTINGS'])
+    return redirect(url_for('login'))
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     next_url = request.args.get('next') #or request.form.get('next') #Retrieves the next page to serve after successful login from the QUERY STRING (after the '?')
-    if request.method == 'POST' and request.form.get('password'):	#in the URL
+    if request.method == 'POST' and request.form.get('password') and request.form.get('username'):	#in the URL
         password = request.form.get('password')
-        if password == app.config['ADMIN_PASSWORD']:
+        username = request.form.get('username')
+        user = User.checkCredentials(username, password)
+        if user:
             session['logged_in'] = True
-            session.permanent = True  # Use cookie to store session.
-            flash('You are now logged in', 'success')
-            return redirect(next_url) #or url_for('main'))
+            session['user'] = user
+            # session.permanent = True  # Use cookie to store session.
+            flash('You are now logged in as '+user.username, 'success')
+            return redirect(next_url or url_for('main'))
         else:
-            flash('Incorrect password.', 'danger')
+            flash('Incorrect credentials', 'danger')
     return render_template('login.html', next_url=next_url)
-
-
-@app.route('/temp_log', methods=['GET', 'POST'])
-def truc():
-    return render_template('login.html')
-
 
 @app.route('/logout', methods=['GET', 'POST'])
 def logout():
@@ -61,11 +80,15 @@ def logout():
 def create():
     if request.method == 'POST':
         if request.form.get('title') and request.form.get('content'):
+            user=session['user']
             entry = Entry(
                 title=request.form['title'],
                 content=request.form['content'],
-                published=request.form.get('published') or False)
+                published=request.form.get('published') or False,
+                authors=[user['username']])
             entry.save()
+            Entry.objects(id=entry.id).update_one(slug=unicode(entry.id))
+            entry.reload() #made to avoid duplicate slugs and to generate an url
             flash('Entry created successfully.', 'success')
             if entry.published:
                 return redirect(url_for('detail', slug=entry.slug))

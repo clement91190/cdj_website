@@ -7,13 +7,15 @@
 ##############################
 
 import os
-from server import app
+from server import app, db
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
-    debug = (port == 5000)
+    debug = (port == 5000 or port == 8000)
     if debug:
         #A local database is used for testing
-        app.config['MONGODB_SETTINGS'] = {'db': 'local_db'}
+        #app.config['MONGODB_SETTINGS'] = {'db': 'local_db', 'host':'mongodb://localhost/test'}
+        app.config['MONGODB_DB'] = 'local_db'
+        app.config['MONGODB_HOST'] = 'mongodb://localhost/test'
         print('Debug mode is enabled. local_db used')
     app.run(host='0.0.0.0', port=port, debug=debug) #run() should not be used for production. Instead, gunicorn should be used in the procfile

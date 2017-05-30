@@ -8,12 +8,36 @@ from markdown.extensions.extra import ExtraExtension
 from mongoengine import DoesNotExist
 
 
+class User(db.Document):
+    username = db.StringField(required = True, unique = True)
+    password = db.StringField(required = True)
+    email = db.EmailField(required = True)
+    first_name = db.StringField()
+    last_name = db.StringField()
+    birthday = db.DateTimeField()
+    address = db.StringField()
+
+    @classmethod
+    def userExists(cls, name):
+        try: 
+            return User.objects(username=name).get()
+        except DoesNotExist:
+            return None
+
+    @classmethod
+    def checkCredentials(cls, name, passwd):
+        try:
+            return User.objects(username=name, password=passwd).get()
+        except DoesNotExist:
+            return None
+
 class Entry(db.Document):
     title = db.StringField()
-    slug = db.StringField(default='default_slug')
+    slug = db.StringField(unique=True, default='temp_slug')
     content = db.StringField()
     published = db.BooleanField()
     timestamp = db.DateTimeField(default=datetime.datetime.now)
+    authors = db.ListField(db.ReferenceField(User))
 
     @property
     def html_content(self):
@@ -48,3 +72,4 @@ class Entry(db.Document):
                 return Entry.objects(slug=slug).first()
         except DoesNotExist:
             return None
+
