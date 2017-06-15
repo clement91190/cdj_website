@@ -2,33 +2,43 @@
 <!DOCTYPE html>
 {% block contents %}
             <section class="header-10-sub v-center bg-midnight-blue">
-                <!-- div class="background"> Old header
-                    &nbsp;
-                </div>
-                <div>
-                    <div class="container">
-                        <div class="hero-unit">
-                            <h1> La Cité des Jeunes</h1>
-                            <p>
-                              L'association La Cité des Jeunes est un organisme de vacances catholique. Gérée et animée par des bénévoles, elle organise des Centres de Vacances et de Loisirs d'été ouverts aux filles et garçons de 6 à 17 ans. Depuis 80 ans, les vacances à la Cité des Jeunes ont contribué à l'épanouissement de plusieurs générations d'enfants et adolescents. 
-                            </p>
-
-                   </div>
-                </div>
-                <a class="control-btn fui-arrow-down" href="#"> </a -->
-
                 <h2>Actualités</h2>
-                <div class="recent-posts-row">
-                        {% for post in recent_posts %}
+                <table id="recent-posts-display">
+                    <tr class="recent-posts-row">
+                        {% for i in range(max_index) %}
+                            <!-- Old testing presentation, deprecated
                             <div class="post-item">
-                                <p>{{ post.title }}</p>
-                                <p>By {% for user in post.authors %} <!-- TODO : find a way to correctly display users -->
-                                        {{ user.username }}
-                                    {% endfor %}
+                                <p>{{ recent_posts[i].title }}</p>
+                                <p>Par {{ posts_authors[i] }}, le {{ recent_posts[i].timestamp.day }}/{{ recent_posts[i].timestamp.month }}
                                 </p>
-                            </div>
+                            </div> -->
+                            <td>
+                                <article class="card">
+                                    <header class="card__thumb">
+                                        <a href="#">
+                                            <img src="/static/img/article.JPG"/>
+                                        </a>
+                                    </header>
+                                    <div class="card__date">
+                                        <span class="card__date__day">{{ recent_posts[i].timestamp.day }}</span>
+                                        <span class="card__date__month">{{ recent_posts[i].timestamp.month }}</span>
+                                    </div>
+                                    <div class="card__body">
+                                        <div class="card__category"><a href="#">Actualité</a></div>
+                                        <div class="card__title"><a href="#">L'été arrive</a></div>
+                                        <div class="card__subtitle">{{ recent_posts[i].title }}</div>
+                                        <p class="card__description">
+                                            Il n'est de singe qui ne soit primate. La réciproque est fausse. L'avantage d'un tel animal est sa convivialité en terrain boisé. Jamais nous ne verrons un singe croiser un arbre sans y escalader. Cependant, le cri du singe revêt des sonorités disparates que l'on ne saurait identifier.
+                                        </p>
+                                    </div>
+                                    <footer class="card__footer">
+
+                                    </footer>
+                                </article>
+                            </td>
                         {% endfor %}
-                </div>
+                    </tr>
+                </table>
             </section>
 
             <!-- content-7  -->

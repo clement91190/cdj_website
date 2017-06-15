@@ -12,8 +12,11 @@ def test():
 @app.route('/', methods=['POST', 'GET'])
 def main():
     recent_posts = Entry.objects.order_by('-timestamp')[:5]
+    posts_authors= []
+    for i in range (0, min(5, len(recent_posts))):
+        posts_authors.append(','.join(recent_posts[i].get_author_names()))
     print recent_posts
-    return render_template('index.html', recent_posts=recent_posts)
+    return render_template('index.html', recent_posts=recent_posts, posts_authors=posts_authors , max_index=min(5, len(recent_posts)))
 
 
 @app.route('/about', methods=['POST', 'GET'])

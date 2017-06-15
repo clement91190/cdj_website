@@ -72,4 +72,10 @@ class Entry(db.Document):
                 return Entry.objects(slug=slug).first()
         except DoesNotExist:
             return None
-
+    
+    def get_author_names(self):
+        author_names = []
+        for author_ref in self.authors:
+            author = User.objects(username=author_ref.id).get()
+            author_names.append(author.username)
+        return author_names
