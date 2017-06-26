@@ -1,5 +1,5 @@
 from server import db, oembed_providers, app
-import datetime
+import datetime, bcrypt 
 from micawber import parse_html
 from flask import Markup
 from markdown import markdown
@@ -10,7 +10,7 @@ from mongoengine import DoesNotExist
 
 class User(db.Document):
     username = db.StringField(required = True, unique = True)
-    password = db.StringField(required = True)
+    pwHash = db.StringField(required = True)
     email = db.EmailField(required = True)
     first_name = db.StringField()
     last_name = db.StringField()
@@ -27,7 +27,14 @@ class User(db.Document):
     @classmethod
     def checkCredentials(cls, name, passwd):
         try:
-            return User.objects(username=name, password=passwd).get()
+            checkedUser = User.objects(username=name).get()
+            #The passwords are hashed and checked with bcrypt. Bcrypt checking method only accepts byte strings,
+            #while mongodb stores them as unicode strings, hence the need to reencode them;
+            encodedPasswd = passwd.encode('utf8')
+            if bcrypt.checkpw(encodedPasswd, checkedUser.pwHash.encode('utf8')):
+                return checkedUser
+            else:
+                return None
         except DoesNotExist:
             return None
 

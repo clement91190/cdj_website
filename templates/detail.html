@@ -11,6 +11,11 @@
 {% endblock %}
 
 {% block contents %}
-  <p>Created {{ entry.timestamp.strftime('%m/%d/%Y at %G:%I%p') }}</p>
-  {{ entry.html_content }}
+    <div class = content-wrapper>
+        <div class = text-wrapper>
+            <h2>{{ entry.title }}</h2>
+            <p class = "post-timestamp">Le {{ entry.timestamp.strftime('%d/%m/%Y,  %H:%M') }} par {{ ','.join(entry.get_author_names()) }}</p>
+            {{ entry.html_content }}
+        </div>
+    </div>
 {% endblock %}

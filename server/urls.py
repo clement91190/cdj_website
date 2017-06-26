@@ -1,6 +1,6 @@
 from server import app, db
 from flask import render_template, session, url_for, redirect, request, flash, Response
-import functools
+import functools, bcrypt
 from models import Entry, User
 
 
@@ -32,10 +32,14 @@ def login_required(fn):
         return redirect(url_for('login', next=request.path)) #'url_for' generates an URL to 'login' while passing the following arguments (here, 'next') 
     return inner											 #through the generated URL
 
+
+#----------------------------------------------#
+#Testing functions for the User class. DELETE BEFORE DEPLOYMENT /!\
 @app.route('/dummy')
 def create_dummy():
     if not User.userExists('Aaa'):
-        dummy=User(username='Aaa', password='pwd', email='dumdum@dummail.com')
+        encodedPw = 'pwd'
+        dummy=User(username='Aaa', pwHash=bcrypt.hashpw(encodedPw.encode('utf8'), bcrypt.gensalt()), email='dumdum@dummail.com')
         dummy.save()
     return redirect(url_for('login'))
 
@@ -52,6 +56,7 @@ def print_db():
     print(User._get_db())
     print(app.config['MONGODB_SETTINGS'])
     return redirect(url_for('login'))
+#----------------------------------------------#
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
