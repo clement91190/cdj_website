@@ -1993,12 +1993,13 @@ body > #full-height {
 
 /* text wrapper*/
 .content-wrapper {
-    background-image: url("../img/img-1-wide-repeat.jpg");
+    background-image: url("../img/img-1-lighter-2.jpg");
     background-position: left top;
     background-attachment: fixed;
     background-size: cover;
     padding-top: 40px;
     padding-bottom: 20px;
+    min-height: 530px;
 }
 
 .text-wrapper {

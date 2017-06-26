@@ -92,7 +92,8 @@ def create():
             entry = Entry(
                 title=request.form['title'],
                 content=request.form['content'],
-                published=request.form.get('published') or False,
+                published=True,
+                #published=request.form.get('published') or False, #for later implementation of drafts
                 authors=[user['username']])
             entry.save()
             Entry.objects(id=entry.id).update_one(slug=unicode(entry.id))
@@ -116,6 +117,8 @@ def drafts():
 
 @app.route('/<slug>')
 def detail(slug):
+
+    #TODO: implement drafts and publication handling
     if session.get('logged_in'):
         entry = Entry.get_entry(slug, public=False)
     else:
@@ -203,7 +206,8 @@ def jvoupas():
 
 @app.route('/news', methods=['POST', 'GET'])
 def news():
-    return render_template('news.html')
+    posts_list = Entry.objects.order_by('-timestamp')
+    return render_template('news.html', posts_list=posts_list)
 
 
 @app.route('/coin_anims', methods=['POST', 'GET'])

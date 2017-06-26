@@ -86,3 +86,15 @@ class Entry(db.Document):
             author = User.objects(username=author_ref.id).get()
             author_names.append(author.username)
         return author_names
+
+    def get_short_text(self):
+        if len(self.content) <= 150:
+            return self.content
+        else:
+            for i in range(150, len(self.content)):
+                if self.content[i] == ' ':
+                    return self.content[:i]
+            return self.content
+
+    def is_shortened(self):
+        return len(self.content) > 150
