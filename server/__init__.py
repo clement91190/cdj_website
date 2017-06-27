@@ -9,10 +9,10 @@ app.config['ADMIN_PASSWORD'] = 'secret'
 app.config['SECRET_KEY'] = '!&b0GDb6m%gFvddrZDj34?_A^pBw9h*'
 
 #UNCOMMENT FOR PRODUCTION DEPLOYMENT
-#app.config['MONGODB_SETTINGS'] = {
-#    'db': 'heroku_2ccz1cfc',
-#    'host': 'mongodb://cdj_blog:unregimentdefromageblanc@ds019478.mlab.com:19478/heroku_2ccz1cfc'
-#}
+app.config['MONGODB_SETTINGS'] = {
+    'db': 'heroku_2ccz1cfc',
+    'host': 'mongodb://cdj_blog:unregimentdefromageblanc@ds019478.mlab.com:19478/heroku_2ccz1cfc'
+}
 
 #Connect the app to its database. If the block above is in comment, a local database will be used.
 db = MongoEngine(app)

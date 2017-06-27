@@ -1,1 +1,1 @@
-web: python instant_server.py
+web: gunicorn -w 2 instant_server:app

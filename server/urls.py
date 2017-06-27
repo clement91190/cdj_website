@@ -15,7 +15,7 @@ def main():
     posts_authors= []
     for i in range (0, min(5, len(recent_posts))):
         posts_authors.append(','.join(recent_posts[i].get_author_names()))
-    print recent_posts
+    #print recent_posts
     return render_template('index.html', recent_posts=recent_posts, posts_authors=posts_authors , max_index=min(5, len(recent_posts)))
 
 
@@ -34,28 +34,28 @@ def login_required(fn):
 
 
 #----------------------------------------------#
-#Testing functions for the User class. DELETE BEFORE DEPLOYMENT /!\
-@app.route('/dummy')
-def create_dummy():
-    if not User.userExists('Aaa'):
-        encodedPw = 'pwd'
-        dummy=User(username='Aaa', pwHash=bcrypt.hashpw(encodedPw.encode('utf8'), bcrypt.gensalt()), email='dumdum@dummail.com')
-        dummy.save()
-    return redirect(url_for('login'))
-
-@app.route('/nodummy')
-def delete_dummy():
-    try:
-        User.objects(username='Aaa').get().delete()
-        return redirect(url_for('logout'))
-    except DoesNotExist:
-        return redirect(url_for('logout'))
-
-@app.route('/database')
-def print_db():
-    print(User._get_db())
-    print(app.config['MONGODB_SETTINGS'])
-    return redirect(url_for('login'))
+#Testing functions for the User class. DO NOT DEPLOY /!\
+#@app.route('/dummy')
+#def create_dummy():
+#    if not User.userExists('Aaa'):
+#        encodedPw = 'pwd'
+#        dummy=User(username='Aaa', pwHash=bcrypt.hashpw(encodedPw.encode('utf8'), bcrypt.gensalt()), email='dumdum@dummail.com')
+#        dummy.save()
+#    return redirect(url_for('login'))
+#
+#@app.route('/nodummy')
+#def delete_dummy():
+#    try:
+#        User.objects(username='Aaa').get().delete()
+#        return redirect(url_for('logout'))
+#    except DoesNotExist:
+#        return redirect(url_for('logout'))
+#
+#@app.route('/database')
+#def print_db():
+#    print(User._get_db())
+#    print(app.config['MONGODB_SETTINGS'])
+#    return redirect(url_for('login'))
 #----------------------------------------------#
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -163,8 +163,8 @@ def edit(slug):
 
 @app.errorhandler(404)
 def not_found(exc):
-    print('Debug is set to ')
-    print(app.config.get('DEBUG'))
+    #print('Debug is set to ')
+    #print(app.config.get('DEBUG'))
     return Response('<h3>Not found</h3>'), 404
 
 
