@@ -2061,3 +2061,14 @@ h3 .post-timestamp {
 .text-wrapper ul {
     margin-left: 100px;
 }
+
+.button-wrapper {
+}
+
+.right-aligned {
+    float: right;
+}
+
+#new-post-btn {
+    margin-top:-40px;
+}

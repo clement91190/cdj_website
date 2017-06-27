@@ -10,6 +10,10 @@
 
 {% block contents %}
   <p>Created {{ entry.timestamp.strftime('%m/%d/%Y at %G:%I%p') }}</p>
-  <p>Post edition will be available soon!</p> 
+  <p>L'édition de posts sera bientôt disponible!</p>
+  <p>Si vous le souhaitez, vous pouvez supprimer ce post en cliquant sur le bouton ci-dessous. ATTENTION, la suppression est immédiate et définitive!</p>
+  <form action="/{{ entry.slug }}/edit" class="form-horizontal" method="POST">
+    <button class="btn btn-lg btn-danger" type="submit" name="delete" value="True">Supprimer ce post</button>
+  </form>
   {{ entry.html_content }}
 {% endblock %}

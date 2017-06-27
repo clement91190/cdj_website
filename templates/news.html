@@ -6,6 +6,9 @@
 		<div><!-- class="container v-center bg-white content-24"-->
                         <h2>Les nouvelles</h2>
                         <p class="lead">Retrouvez ici les dernières actualités concernant la Cité des Jeunes!</p>
+                        {% if session['logged_in'] %}
+                            <a class="btn btn-lg btn-primary right-aligned" id="new-post-btn" href = "/create">Nouveau post</a>
+                        {% endif %}
                         {% for entry in posts_list %}
                             <div class="post-list-item">
                             <h3>

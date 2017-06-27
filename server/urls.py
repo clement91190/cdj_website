@@ -140,6 +140,10 @@ def edit(slug):
         return not_found(404)
 
     if request.method == 'POST':
+        if request.form.get('delete'):
+            entry.delete()
+            flash('Post supprime', 'danger')
+            return redirect(url_for('news'))
         if request.form.get('title') and request.form.get('content'):
             entry.title = request.form['title']
             entry.content = request.form['content']
