@@ -118,9 +118,13 @@
 				<p>
 				Cité des jeunes, Janvier 2016
 				</p>
-                                <p>
-                                    <a href = "/login">Accès restreint</a>
-                                </p>
+                                {% if session['logged_in'] %}
+                                    <p>Connecté avec le compte {{ session['user'].username }}. <a href = "/logout">Déconnexion</a></p>
+                                {% else %}
+                                    <p>
+                                        <a href = "/login">Accès restreint</a>
+                                    </p>
+                                {% endif %}
 			</div>
 		</div>
 	</footer>

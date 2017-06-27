@@ -28,10 +28,10 @@
                                     </div>
                                     <div class="card__body">
                                         <div class="card__category"><a href="#">Actualité</a></div>
-                                        <div class="card__title"><a href="/{{ recent_posts[i].slug }}">L'été arrive</a></div>
-                                        <div class="card__subtitle">{{ recent_posts[i].title }}</div>
+                                        <div class="card__title"><a href="/{{ recent_posts[i].slug }}">{{ recent_posts[i].title }}</a></div>
+                                        <!-- div class="card__subtitle">{{ recent_posts[i].title }}</div -->
                                         <!--p class="card__description">
-                                            Il n'est de singe qui ne soit primate. La réciproque est fausse. L'avantage d'un tel animal est sa convivialité en terrain boisé. Jamais nous ne verrons un singe croiser un arbre sans y escalader. Cependant, le cri du singe revêt des sonorités disparates que l'on ne saurait identifier.
+                                            {{ recent_posts[i].get_short_text() }}
                                         </p-->
                                     </div>
                                     <!--footer class="card__footer">

@@ -6,8 +6,8 @@
 {% block content_title %}Log out{% endblock %}
 
 {% block contents %}
-  <p>Click the button below to log out of the site.</p>
+  <p>Cliquez sur le bouton ci-dessous pour vous déconnecter de votre compte.</p>
   <form action="{{ url_for('logout') }}" class="form-horizontal" method="post">
-    <button class="btn btn-primary" type="submit">Log out</button>
+    <button class="btn btn-primary" type="submit">Déconnexion</button>
   </form>
 {% endblock %}

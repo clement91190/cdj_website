@@ -98,3 +98,9 @@ class Entry(db.Document):
 
     def is_shortened(self):
         return len(self.content) > 150
+
+    def isAuthor(self, username):
+        for author_ref in self.authors:
+            if author_ref.id == username:
+                return True
+        return False

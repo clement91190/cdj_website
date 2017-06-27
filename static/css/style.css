@@ -987,6 +987,11 @@ section * {
   margin: 0;
   background-color: transparent;
 }
+
+.header-10-sub h2 {
+    position: relative;
+}
+
 .header-10-sub .hero-unit h1 {
   margin: 0 0 30px;
   font-size: 45px;
@@ -1872,7 +1877,7 @@ body > #full-height {
 .card__body {
     position: relative;
     padding: 20px;
-    height: 185px;
+    height: 115px;
     transition: height 0.3s;
     background-color: #d8e0e5;
 }
@@ -1941,7 +1946,7 @@ body > #full-height {
 .card:hover .card__description {
     opacity: 1;
     transition-delay: 0.1s;
-    -webkit-transform: translateY(0);
+    /*-webkit-transform: translateY(0);*/
 }
 
 .card__footer {
@@ -1997,18 +2002,27 @@ body > #full-height {
     background-position: left top;
     background-attachment: fixed;
     background-size: cover;
-    padding-top: 40px;
-    padding-bottom: 20px;
     min-height: 530px;
 }
 
+.post-wrapper {
+    padding-top: 40px;
+    padding-bottom: 20px;
+}
+
+/*--- Wrapper template for pages containing mostly text ---*/
 .text-wrapper {
-    width: 60%;
+    width: 75%;
     margin: auto;
     text-align:justify;
     background-color: white;
-    padding-top: 1px;
-    padding-bottom: 3em;
+   /* padding-top: 1px;
+    padding-bottom: 3em;*/
+    padding: 1px 30px 7em 30px;
+}
+
+.post-wrapper .text-wrapper {
+    width: 60%;
 }
 
 .text-wrapper p {
@@ -2016,12 +2030,34 @@ body > #full-height {
     margin-right: 100px;
 }
 
-.text-wrapper h2 {
+.text-wrapper h2, h4 {
     margin-left: 60px;
 }
 
-.text-wrapper .post-timestamp {
+
+/*--- Timestamp display templates ---*/
+.post-timestamp {
     color: #c4c4bf;
     font-size: 15px;
-    padding-bottom: 10px;
+}
+
+h3 .post-timestamp {
+    margin-left: 10px;
+}
+
+.text-wrapper .post-timestamp {
+    margin-bottom: 10px;
+}
+
+/*---Posts list display template ---*/
+.post-list-item {
+    margin-bottom: 4em;
+    padding-left: 80px;
+}
+
+.post-list-item h3 {
+}
+
+.text-wrapper ul {
+    margin-left: 100px;
 }

@@ -4,17 +4,23 @@
 
 {% block content_title %}{{ entry.title }}{% endblock %}
 
+<!--
 {% block extra_header %}
   {% if session.logged_in %}
     <li><a href="{{ url_for('edit', slug=entry.slug) }}">Edit entry</a></li>
   {% endif %}
 {% endblock %}
+-->
 
 {% block contents %}
-    <div class = content-wrapper>
-        <div class = text-wrapper>
+    <div class ="content-wrapper post-wrapper">
+        <div class ="text-wrapper">
             <h2>{{ entry.title }}</h2>
-            <p class = "post-timestamp">Le {{ entry.timestamp.strftime('%d/%m/%Y,  %H:%M') }} par {{ ','.join(entry.get_author_names()) }}</p>
+            <p class = "post-timestamp">Le {{ entry.timestamp.strftime('%d/%m/%Y,  %H:%M') }} par {{ ','.join(entry.get_author_names()) }} 
+                {% if session.logged_in  and entry.isAuthor(session['user'].username) %}
+                    <a href = "/{{ entry.slug }}/edit">Modifier</a>
+                {% endif %}
+            </p>
             {{ entry.html_content }}
         </div>
     </div>

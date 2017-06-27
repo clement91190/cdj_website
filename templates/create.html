@@ -3,17 +3,17 @@
 <!DOCTYPE html>
 
 {% block contents %}
-	<h2>Create new post</h2>
+	<h2>Création d'un nouveau post</h2>
 	<form action="{{ url_for('create') }}" class="form-horizontal" method="post">
 		<dl class="form-list">
 			<dt>Titre</dt>
-			<dd><input type="text" name="title"></dd>
+			<dd><input type="text" name="title" placeholder="Titre du post" autofocus></dd>
 			<dt>Message</dt>
-			<dd><input type="text" name="content"></dd>
+			<dd><textarea rows="10" cols ="70" name="content" placeholder="Contenu du message..."></textarea></dd>
 		</dl>
 		<div>
-			<label for="custom-switch-01">Message public</label>
-			<!--label class="checkbox"> For later implementation of drafts
+			<!--label for="custom-switch-01">Message public</label>
+			<label class="checkbox"> For later implementation of drafts
 				<input type="checkbox" name="published" value="public" data-toggle="checkbox" id="custom-switch-01"/>
 			</label-->
 		</div>
